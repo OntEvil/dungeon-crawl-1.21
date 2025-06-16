@@ -17,7 +17,11 @@ public class ModBlocks {
     //Each block is a method with parameters controlling how the block functions
     public static final Block raw_steel_block = registerBlock("raw_steel_block",
             new Block(AbstractBlock.Settings.create().strength(4f)
-                    .requiresTool().sounds(BlockSoundGroup.ANVIL)));
+                    .requiresTool().sounds(BlockSoundGroup.DEEPSLATE)));
+
+    public static final Block steel_block = registerBlock("steel_block",
+            new Block(AbstractBlock.Settings.create().strength(4f)
+                    .requiresTool().sounds(BlockSoundGroup.DEEPSLATE)));
 
     //a helper method called in ModBlocks to register blocks we create
     private static Block registerBlock(String name, Block block) {
@@ -34,6 +38,7 @@ public class ModBlocks {
         DungeonCrawl.LOGGER.info("Registering mod blocks for " + DungeonCrawl.MOD_ID);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(fabricItemGroupEntries -> {
                     fabricItemGroupEntries.add(ModBlocks.raw_steel_block);
+                    fabricItemGroupEntries.add(ModBlocks.steel_block);
                 }
         );
 

@@ -32,6 +32,7 @@ public class ModItemGroups {
                     .entries((displayContext, entries) -> {
                         //This adds each block to the raw steel blocks tag
                         entries.add(ModBlocks.raw_steel_block);
+                        entries.add(ModBlocks.steel_block);
 
                     }).build());
 
