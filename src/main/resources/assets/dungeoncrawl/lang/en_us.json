@@ -1,0 +1,9 @@
+{
+  "item.dungeoncrawl.steel": "Steel",
+  "item.dungeoncrawl.raw_steel": "Raw Steel",
+
+  "block.dungeoncrawl.raw_steel_block": "Block of Raw Steel",
+
+  "itemgroup.dungeoncrawl.raw_steel_items": "Raw Steel Items",
+  "itemgroup.dungeoncrawl.raw_steel_blocks": "Raw Steel blocks"
+}

@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "dungeon-crawl",
+	"version": "${version}",
+	"name": "Dungeon Crawl",
+	"description": "A mod focused on adding more dungeon elements.",
+	"authors": [
+		"Ontologically Evil/jonathan"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/dungeon-crawl/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"ontologically.dungeon.DungeonCrawl"
+		],
+		"fabric-datagen": [
+			"ontologically.dungeon.DungeonCrawlDataGenerator"
+		],
+		"client": [
+			"ontologically.dungeon.DungeonCrawlClient"
+		]
+	},
+	"mixins": [
+		"dungeon-crawl.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.14",
+		"minecraft": "~1.21",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
