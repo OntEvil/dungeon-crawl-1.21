@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#" : {
+      "item": "dungeoncrawl:raw_steel"
+    }
+  },
+  "pattern": [
+    "###",
+    "###",
+    "###"
+
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeoncrawl:raw_steel_block"
+  }
+}

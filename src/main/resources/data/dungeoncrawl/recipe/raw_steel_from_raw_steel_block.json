@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category" : "misc",
+
+  "ingredients": [
+    {
+      "item": "dungeoncrawl:raw_steel_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "dungeoncrawl:raw_steel"
+  }
+}
