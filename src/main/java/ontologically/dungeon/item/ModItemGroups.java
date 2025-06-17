@@ -13,10 +13,10 @@ import ontologically.dungeon.DungeonCrawl;
 
 public class ModItemGroups {
     // Method that helps tag items in our mod
-    public static final ItemGroup RAW_STEEL_ITEMS_GROUP = Registry.register(Registries.ITEM_GROUP,
-            Identifier.of(DungeonCrawl.MOD_ID, "raw_steel_items"),
+    public static final ItemGroup DUNGEONCRAWL_ITEMS_GROUP = Registry.register(Registries.ITEM_GROUP,
+            Identifier.of(DungeonCrawl.MOD_ID, "dungeoncrawl_items"),
             FabricItemGroup.builder().icon(() -> new ItemStack(ModItems.raw_steel))
-                    .displayName(Text.translatable("itemgroup.dungeoncrawl.raw_steel_items"))
+                    .displayName(Text.translatable("itemgroup.dungeoncrawl.dungeoncrawl_items"))
                     .entries((displayContext, entries) -> {
                         //this adds each item to the raw steel items tag
                         entries.add(ModItems.raw_steel);
@@ -25,10 +25,10 @@ public class ModItemGroups {
                     }).build());
 
     //method that helps tag blocks in our mod
-    public static final ItemGroup RAW_STEEL_BLOCKS_GROUP = Registry.register(Registries.ITEM_GROUP,
-            Identifier.of(DungeonCrawl.MOD_ID, "raw_steel_blocks"),
+    public static final ItemGroup DUNGEONCRAWL_BLOCKS_GROUP = Registry.register(Registries.ITEM_GROUP,
+            Identifier.of(DungeonCrawl.MOD_ID, "dungeoncrawl_blocks"),
             FabricItemGroup.builder().icon(() -> new ItemStack(ModBlocks.raw_steel_block))
-                    .displayName(Text.translatable("itemgroup.dungeoncrawl.raw_steel_blocks"))
+                    .displayName(Text.translatable("itemgroup.dungeoncrawl.dungeoncrawl_blocks"))
                     .entries((displayContext, entries) -> {
                         //This adds each block to the raw steel blocks tag
                         entries.add(ModBlocks.raw_steel_block);

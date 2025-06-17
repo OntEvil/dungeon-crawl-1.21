@@ -5,8 +5,8 @@
   "block.dungeoncrawl.raw_steel_block": "Block of Raw Steel",
   "block.dungeoncrawl.steel_block": "Block of Steel",
 
-  "itemgroup.dungeoncrawl.raw_steel_items": "Raw Steel Items",
-  "itemgroup.dungeoncrawl.raw_steel_blocks": "Raw Steel blocks"
+  "itemgroup.dungeoncrawl.dungeoncrawl_items": "Dungeon Crawl Items",
+  "itemgroup.dungeoncrawl.dungeoncrawl_blocks": "Dungeon Crawl Blocks"
 
 
 }

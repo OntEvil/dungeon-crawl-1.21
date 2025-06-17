@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "dungeon-crawl",
+	"id": "dungeoncrawl",
 	"version": "${version}",
 	"name": "Dungeon Crawl",
 	"description": "A mod focused on adding more dungeon elements.",
