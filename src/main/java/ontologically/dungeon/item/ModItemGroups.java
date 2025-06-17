@@ -21,6 +21,15 @@ public class ModItemGroups {
                         //this adds each item to the raw steel items tag
                         entries.add(ModItems.raw_steel);
                         entries.add(ModItems.steel);
+                        entries.add(ModItems.steel_smithing_template);
+
+                        entries.add(ModItems.steel_sword);
+                        entries.add(ModItems.steel_pickaxe);
+                        entries.add(ModItems.steel_axe);
+                        entries.add(ModItems.steel_shovel);
+                        entries.add(ModItems.steel_hoe);
+
+
 
                     }).build());
 

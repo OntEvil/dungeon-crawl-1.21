@@ -9,6 +9,9 @@ import net.minecraft.item.Item;
 
 public class ModTags {
     public static class Blocks {
+        public static final TagKey<Block> needs_steel_tool = createTag("needs_steel_tool");
+        public static final TagKey<Block> incorrect_for_steel_tool = createTag("incorrect_for_steel_tool");
+
         private static TagKey<Block> createTag(String name) {
             return TagKey.of(RegistryKeys.BLOCK, Identifier.of(DungeonCrawl.MOD_ID, name));
         }

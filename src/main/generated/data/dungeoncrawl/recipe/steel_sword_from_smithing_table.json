@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "dungeoncrawl:steel"
+  },
+  "base": {
+    "item": "minecraft:iron_sword"
+  },
+  "result": {
+    "count": 1,
+    "id": "dungeoncrawl:steel_sword"
+  },
+  "template": {
+    "item": "dungeoncrawl:steel_smithing_template"
+  }
+}

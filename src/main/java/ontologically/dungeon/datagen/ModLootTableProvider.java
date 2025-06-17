@@ -27,6 +27,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
     @Override
     public void generate(){
+        //basic method to make a block drop itself
         addDrop(ModBlocks.steel_block);
         addDrop(ModBlocks.raw_steel_block);
 

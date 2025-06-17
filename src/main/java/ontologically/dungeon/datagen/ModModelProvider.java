@@ -15,6 +15,7 @@ public class ModModelProvider extends FabricModelProvider {
     }
 
     @Override
+    //generates a basic block model json and item json
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.raw_steel_block);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.steel_block);
@@ -25,5 +26,13 @@ public class ModModelProvider extends FabricModelProvider {
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(ModItems.raw_steel, Models.GENERATED);
         itemModelGenerator.register(ModItems.steel, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.steel_sword, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.steel_shovel, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.steel_axe, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.steel_pickaxe, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.steel_hoe, Models.HANDHELD);
+
+
     }
 }
