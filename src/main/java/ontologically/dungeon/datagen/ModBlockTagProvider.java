@@ -19,6 +19,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         //all blocks that need a pickaxe to mine
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(ModBlocks.steel_block)
+                .add(ModBlocks.metallurgic_coal_block)
                 .add(ModBlocks.raw_steel_block);
         //what tier tool you need to mine
         getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)

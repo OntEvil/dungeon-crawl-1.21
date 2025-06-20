@@ -15,6 +15,10 @@ public class ModItems {
 
     public static final Item raw_steel = registerItem("raw_steel", new Item(new Item.Settings()));
 
+    public static final Item steel_fragment = registerItem("steel_fragment", new Item(new Item.Settings()));
+
+    public static final Item metallurgic_coal = registerItem("metallurgic_coal", new Item(new Item.Settings()));
+
     public static final Item steel_sword = registerItem("steel_sword",
             new SwordItem(ModToolMaterials.Steel, new Item.Settings()
                     //the base attack and attack speed are the default for all swords in the game
@@ -68,6 +72,8 @@ public class ModItems {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(fabricItemGroupEntries -> {
             fabricItemGroupEntries.add(steel);
             fabricItemGroupEntries.add(raw_steel);
+            fabricItemGroupEntries.add(metallurgic_coal);
+            fabricItemGroupEntries.add(steel_fragment);
 
         });
     }

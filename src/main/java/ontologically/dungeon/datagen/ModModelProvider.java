@@ -20,6 +20,7 @@ public class ModModelProvider extends FabricModelProvider {
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.raw_steel_block);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.steel_block);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.metallurgic_coal_block);
 
     }
 
@@ -39,5 +40,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.steel_chestplate));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.steel_leggings));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.steel_boots));
+
+        itemModelGenerator.register(ModItems.steel_fragment, Models.GENERATED);
+        itemModelGenerator.register(ModItems.metallurgic_coal, Models.GENERATED);
     }
 }

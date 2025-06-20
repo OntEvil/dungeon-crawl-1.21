@@ -32,6 +32,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerSmelting(exporter, STEEL_SMELTABLES, RecipeCategory.MISC,ModItems.steel,0.25f,250,"steel");
         offerBlasting(exporter, STEEL_SMELTABLES, RecipeCategory.MISC,ModItems.steel,0.25f,150,"steel");
 
+
+
         //creates reversible recipe like iron and iron block
         offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.steel, RecipeCategory.BUILDING_BLOCKS, ModBlocks.steel_block);
 
@@ -143,6 +145,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(ModBlocks.raw_steel_block)
                 .criterion(hasItem(ModBlocks.raw_steel_block), conditionsFromItem(ModBlocks.raw_steel_block))
                 .offerTo(exporter, Identifier.of(DungeonCrawl.MOD_ID, "raw_steel_from_raw_steel_block"));
+
+
 
 
     }

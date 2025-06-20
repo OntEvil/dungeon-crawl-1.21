@@ -2,6 +2,7 @@
   "item.dungeoncrawl.steel": "Steel",
   "item.dungeoncrawl.raw_steel": "Raw Steel",
   "item.dungeoncrawl.steel_smithing_template": "Steel Smithing Template",
+  "item.dungeoncrawl.steel_fragment": "steel_fragment",
 
   "item.dungeoncrawl.steel_sword": "Steel Sword",
   "item.dungeoncrawl.steel_pickaxe": "Steel Pickaxe",
@@ -16,6 +17,7 @@
 
   "block.dungeoncrawl.raw_steel_block": "Block of Raw Steel",
   "block.dungeoncrawl.steel_block": "Block of Steel",
+  "block.dungeoncrawl.metallurgic_coal_block": "Block of Metallurgic Coal",
 
   "itemgroup.dungeoncrawl.dungeoncrawl_items": "Dungeon Crawl Items",
   "itemgroup.dungeoncrawl.dungeoncrawl_blocks": "Dungeon Crawl Blocks"

@@ -34,6 +34,9 @@ public class ModItemGroups {
                         entries.add(ModItems.steel_leggings);
                         entries.add(ModItems.steel_boots);
 
+                        entries.add(ModItems.steel_fragment);
+                        entries.add(ModItems.metallurgic_coal);
+
 
 
 
@@ -48,6 +51,7 @@ public class ModItemGroups {
                         //This adds each block to the raw steel blocks tag
                         entries.add(ModBlocks.raw_steel_block);
                         entries.add(ModBlocks.steel_block);
+                        entries.add(ModBlocks.metallurgic_coal_block);
 
                     }).build());
 

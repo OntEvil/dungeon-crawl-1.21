@@ -23,6 +23,10 @@ public class ModBlocks {
             new Block(AbstractBlock.Settings.create().strength(4f)
                     .requiresTool().sounds(BlockSoundGroup.DEEPSLATE)));
 
+    public static final Block metallurgic_coal_block = registerBlock("metallurgic_coal_block",
+            new Block(AbstractBlock.Settings.create().strength(3f)
+                    .requiresTool().sounds(BlockSoundGroup.STONE)));
+
     //a helper method called in ModBlocks to register blocks we create
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
@@ -39,6 +43,7 @@ public class ModBlocks {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(fabricItemGroupEntries -> {
                     fabricItemGroupEntries.add(ModBlocks.raw_steel_block);
                     fabricItemGroupEntries.add(ModBlocks.steel_block);
+                    fabricItemGroupEntries.add(ModBlocks.metallurgic_coal_block);
                 }
         );
 

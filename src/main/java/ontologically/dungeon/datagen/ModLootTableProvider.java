@@ -32,7 +32,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.raw_steel_block);
 
         //for an ore first is ore, last is drop
-        //addDrop(ModBlocks.raw_steel_block, oreDrops(ModBlocks.raw_steel_block, ModItems.raw_steel));
+        addDrop(ModBlocks.metallurgic_coal_block, oreDrops(ModBlocks.metallurgic_coal_block, ModItems.metallurgic_coal));
 
     }
 
