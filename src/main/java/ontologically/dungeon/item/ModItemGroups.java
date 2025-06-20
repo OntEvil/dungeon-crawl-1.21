@@ -29,6 +29,12 @@ public class ModItemGroups {
                         entries.add(ModItems.steel_shovel);
                         entries.add(ModItems.steel_hoe);
 
+                        entries.add(ModItems.steel_helmet);
+                        entries.add(ModItems.steel_chestplate);
+                        entries.add(ModItems.steel_leggings);
+                        entries.add(ModItems.steel_boots);
+
+
 
 
                     }).build());

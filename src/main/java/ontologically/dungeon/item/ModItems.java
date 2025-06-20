@@ -41,6 +41,23 @@ public class ModItems {
     public static final Item steel_smithing_template = registerItem("steel_smithing_template", new Item(new Item.Settings()));
 
 
+    public static final Item steel_helmet = registerItem("steel_helmet",
+            new ArmorItem(ModArmorMaterials.steel_armor_material, ArmorItem.Type.HELMET, new Item.Settings()
+                    .maxDamage(ArmorItem.Type.HELMET.getMaxDamage(25))));
+
+    public static final Item steel_chestplate = registerItem("steel_chestplate",
+            new ArmorItem(ModArmorMaterials.steel_armor_material, ArmorItem.Type.CHESTPLATE, new Item.Settings()
+                    .maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(25))));
+
+    public static final Item steel_leggings = registerItem("steel_leggings",
+            new ArmorItem(ModArmorMaterials.steel_armor_material, ArmorItem.Type.LEGGINGS, new Item.Settings()
+                    .maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(25))));
+
+    public static final Item steel_boots = registerItem("steel_boots",
+            new ArmorItem(ModArmorMaterials.steel_armor_material, ArmorItem.Type.BOOTS, new Item.Settings()
+                    .maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(25))));
+
+
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(DungeonCrawl.MOD_ID, name), item);
     }

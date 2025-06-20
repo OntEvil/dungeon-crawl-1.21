@@ -1,6 +1,7 @@
 {
   "item.dungeoncrawl.steel": "Steel",
   "item.dungeoncrawl.raw_steel": "Raw Steel",
+  "item.dungeoncrawl.steel_smithing_template": "Steel Smithing Template",
 
   "item.dungeoncrawl.steel_sword": "Steel Sword",
   "item.dungeoncrawl.steel_pickaxe": "Steel Pickaxe",
@@ -8,11 +9,10 @@
   "item.dungeoncrawl.steel_shovel": "Steel shovel",
   "item.dungeoncrawl.steel_hoe": "Steel hoe",
 
-  "item.dungeoncrawl.steel_smithing_template.applies_to": "Applies to",
-  "item.dungeoncrawl.steel_smithing_template.Ingredients": "Ingredients",
-  "item.dungeoncrawl.steel_smithing_template": "Steel_Smithing_Template",
-  "item.dungeoncrawl.steel_smithing_template.base_slot_desc": "Add Iron Tools to Upgrade",
-  "item.dungeoncrawl.steel_smithing_template.add_slot_desc": "Add Steel Ingot",
+  "item.dungeoncrawl.steel_helmet" : "Steel Helmet",
+  "item.dungeoncrawl.steel_chestplate" : "Steel Chestplate",
+  "item.dungeoncrawl.steel_leggings" : "Steel Leggings",
+  "item.dungeoncrawl.steel_boots" : "Steel Boots",
 
   "block.dungeoncrawl.raw_steel_block": "Block of Raw Steel",
   "block.dungeoncrawl.steel_block": "Block of Steel",
