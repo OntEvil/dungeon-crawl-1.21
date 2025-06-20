@@ -56,6 +56,8 @@ public class ModItems {
     public static final Item steel_boots = registerItem("steel_boots",
             new ArmorItem(ModArmorMaterials.steel_armor_material, ArmorItem.Type.BOOTS, new Item.Settings()
                     .maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(25))));
+    
+    public static final Item steel_fragment = registerItem("steel_fragent", new Item(new Item.Settings()));
 
 
     private static Item registerItem(String name, Item item) {
