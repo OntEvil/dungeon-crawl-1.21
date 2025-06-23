@@ -2,6 +2,7 @@ package ontologically.dungeon;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.registry.FuelRegistry;
 import ontologically.dungeon.block.ModBlocks;
 import ontologically.dungeon.item.ModItemGroups;
 import ontologically.dungeon.item.ModItems;
@@ -24,6 +25,8 @@ public class DungeonCrawl implements ModInitializer {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
+
+		FuelRegistry.INSTANCE.add(ModItems.metallurgic_coal, 3000);
 
 		LOGGER.info("Hello Fabric world!");
 

@@ -26,7 +26,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     @Override
     public void generate(RecipeExporter exporter) {
 
-        List<ItemConvertible> STEEL_SMELTABLES = List.of(ModItems.raw_steel, ModBlocks.raw_steel_block);
+        List<ItemConvertible> STEEL_SMELTABLES = List.of(ModItems.raw_steel);
 
         //Creates smelting recipe for all things in steel smeltables, that let it smelt to steel
         offerSmelting(exporter, STEEL_SMELTABLES, RecipeCategory.MISC,ModItems.steel,0.25f,250,"steel");
@@ -34,9 +34,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
 
 
+
         //creates reversible recipe like iron and iron block
         offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.steel, RecipeCategory.BUILDING_BLOCKS, ModBlocks.steel_block);
-
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.metallurgic_coal, RecipeCategory.BUILDING_BLOCKS, ModBlocks.metallurgic_coal_block);
 
 
         //How to make a shaped recipe
