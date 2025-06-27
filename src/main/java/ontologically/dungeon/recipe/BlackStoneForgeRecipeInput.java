@@ -1,4 +1,4 @@
-package ontologically.dungeon.CustomRecipe;
+package ontologically.dungeon.recipe;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.input.RecipeInput;
@@ -12,6 +12,6 @@ public record BlackStoneForgeRecipeInput(ItemStack input) implements RecipeInput
 
     @Override
     public int getSize() {
-        return 0;
+        return 1;
     }
 }

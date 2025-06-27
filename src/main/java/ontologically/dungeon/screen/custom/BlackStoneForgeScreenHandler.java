@@ -34,7 +34,6 @@ public class BlackStoneForgeScreenHandler extends ScreenHandler {
 
         this.addSlot(new Slot(inventory, 0, 54, 34));
         this.addSlot(new Slot(inventory, 1, 104, 34));
-        this.addSlot(new Slot(inventory, 2, 154, 34));
 
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);

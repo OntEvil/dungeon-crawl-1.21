@@ -3,7 +3,7 @@ package ontologically.dungeon;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.registry.FuelRegistry;
-import ontologically.dungeon.CustomRecipe.ModRecipes;
+import ontologically.dungeon.recipe.ModRecipes;
 import ontologically.dungeon.block.ModBlocks;
 import ontologically.dungeon.block.entity.ModBlockEntities;
 import ontologically.dungeon.item.ModItemGroups;

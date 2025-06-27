@@ -1,4 +1,4 @@
-package ontologically.dungeon.CustomRecipe;
+package ontologically.dungeon.recipe;
 
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;

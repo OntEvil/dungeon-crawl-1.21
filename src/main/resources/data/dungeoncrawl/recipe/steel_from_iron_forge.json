@@ -1,10 +1,12 @@
 {
   "type": "dungeoncrawl:blackstone_forge",
-  "ingredient": {
-    "item": "minecraft:iron_ingot"
-  },
+  "ingredient": [
+    {
+      "item": "minecraft:iron_ingot"
+    }
+  ],
   "result": {
-    "count" : 1,
+    "count": 1,
     "id": "dungeoncrawl:steel"
   }
 }

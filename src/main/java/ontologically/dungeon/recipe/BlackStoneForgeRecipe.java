@@ -1,4 +1,4 @@
-package ontologically.dungeon.CustomRecipe;
+package ontologically.dungeon.recipe;
 
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;

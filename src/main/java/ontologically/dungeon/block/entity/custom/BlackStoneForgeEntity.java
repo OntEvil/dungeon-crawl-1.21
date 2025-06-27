@@ -20,9 +20,9 @@ import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import ontologically.dungeon.CustomRecipe.BlackStoneForgeRecipe;
-import ontologically.dungeon.CustomRecipe.BlackStoneForgeRecipeInput;
-import ontologically.dungeon.CustomRecipe.ModRecipes;
+import ontologically.dungeon.recipe.BlackStoneForgeRecipe;
+import ontologically.dungeon.recipe.BlackStoneForgeRecipeInput;
+import ontologically.dungeon.recipe.ModRecipes;
 import ontologically.dungeon.block.entity.ImplementedInventory;
 import ontologically.dungeon.block.entity.ModBlockEntities;
 import ontologically.dungeon.screen.custom.BlackStoneForgeScreenHandler;
@@ -31,11 +31,11 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Optional;
 
 public class BlackStoneForgeEntity extends BlockEntity implements ExtendedScreenHandlerFactory<BlockPos>, ImplementedInventory  {
-    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(3, ItemStack.EMPTY);
+    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(2, ItemStack.EMPTY);
 
     private static final int INPUT_SLOT = 0;
-    private static final int INPUT_SLOT2 = 1;
-    private static final int OUTPUT_SLOT = 2;
+    //private static final int INPUT_SLOT2 = 1;
+    private static final int OUTPUT_SLOT = 1;
 
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
@@ -136,9 +136,11 @@ public class BlackStoneForgeEntity extends BlockEntity implements ExtendedScreen
     private boolean hasRecipe() {
         Optional<RecipeEntry<BlackStoneForgeRecipe>> recipe = getCurrentRecipe();
         if(recipe.isEmpty()) {
+            System.out.println("hasRecipe is false, bruh momento");
             return false;
         }
         ItemStack output = recipe.get().value().output();
+
         return canInsertAmountIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output);
         //code later #58 16:04c
     }
