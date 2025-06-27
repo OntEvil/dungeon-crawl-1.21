@@ -20,11 +20,13 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(ModBlocks.steel_block)
                 .add(ModBlocks.metallurgic_coal_block)
-                .add(ModBlocks.raw_steel_block);
+                .add(ModBlocks.raw_steel_block)
+                .add(ModBlocks.blackstone_forge);
         //what tier tool you need to mine
         getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
                 .add(ModBlocks.raw_steel_block)
-                .add(ModBlocks.steel_block);
+                .add(ModBlocks.steel_block)
+                .add(ModBlocks.blackstone_forge);
     /**
         getOrCreateTagBuilder(ModTags.Blocks.needs_steel_tool)
                 .addTag(BlockTags.NEEDS_DIAMOND_TOOL);

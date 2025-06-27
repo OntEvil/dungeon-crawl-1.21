@@ -18,7 +18,7 @@ public class ModItemGroups {
             FabricItemGroup.builder().icon(() -> new ItemStack(ModItems.raw_steel))
                     .displayName(Text.translatable("itemgroup.dungeoncrawl.dungeoncrawl_items"))
                     .entries((displayContext, entries) -> {
-                        //this adds each item to the raw steel items tag
+                        //this adds each item to the dungeon crawl items tag
                         entries.add(ModItems.raw_steel);
                         entries.add(ModItems.steel);
                         entries.add(ModItems.steel_smithing_template);
@@ -52,6 +52,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.raw_steel_block);
                         entries.add(ModBlocks.steel_block);
                         entries.add(ModBlocks.metallurgic_coal_block);
+                        entries.add(ModBlocks.blackstone_forge);
 
                     }).build());
 
