@@ -1,10 +1,7 @@
 package ontologically.dungeon.block.Custom;
 
 import com.mojang.serialization.MapCodec;
-import net.minecraft.block.BlockEntityProvider;
-import net.minecraft.block.BlockRenderType;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.BlockWithEntity;
+import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
@@ -13,6 +10,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.state.StateManager;
+import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.ItemScatterer;
@@ -24,10 +23,18 @@ import ontologically.dungeon.block.entity.custom.BlackStoneForgeEntity;
 import org.jetbrains.annotations.Nullable;
 
 public class BlackStoneForgeBlock extends BlockWithEntity implements BlockEntityProvider {
+
+    public static final BooleanProperty lit = BooleanProperty.of("lit");
     public static final MapCodec<BlackStoneForgeBlock> CODEC = BlackStoneForgeBlock.createCodec(BlackStoneForgeBlock::new);
+
+    @Override
+    public void appendProperties(StateManager.Builder<Block,BlockState> builder) {
+        builder.add(lit);
+    };
 
     public BlackStoneForgeBlock(Settings settings) {
         super(settings);
+        setDefaultState(getDefaultState().with(lit,false));
     }
 
     @Override

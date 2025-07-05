@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "lit=false": { "model": "tutorial:block/blackstone_forge" },
+    "lit=true": { "model": "tutorial:block/blackstone_forge_charged" }
+  }
+}
+

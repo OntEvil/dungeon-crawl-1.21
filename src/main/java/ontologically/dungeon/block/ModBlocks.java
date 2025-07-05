@@ -32,7 +32,7 @@ public class ModBlocks {
                     .requiresTool().sounds(BlockSoundGroup.STONE)));
 
     public static final Block blackstone_forge = registerBlock("blackstone_forge",
-            new BlackStoneForgeBlock(AbstractBlock.Settings.create()));
+            new BlackStoneForgeBlock(AbstractBlock.Settings.create().luminance(state -> state.get(BlackStoneForgeBlock.lit) ? 15:0)));
 
     //a helper method called in ModBlocks to register blocks we create
     private static Block registerBlock(String name, Block block) {

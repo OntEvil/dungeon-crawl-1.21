@@ -1,25 +1,37 @@
 package ontologically.dungeon.block.entity.custom;
 
+import net.fabricmc.fabric.api.block.v1.FabricBlock;
+import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.FurnaceBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.recipe.RecipeEntry;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.entry.RegistryEntryList;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.state.StateManager;
+import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import ontologically.dungeon.item.ModItems;
 import ontologically.dungeon.recipe.BlackStoneForgeRecipe;
 import ontologically.dungeon.recipe.BlackStoneForgeRecipeInput;
 import ontologically.dungeon.recipe.ModRecipes;
@@ -28,14 +40,23 @@ import ontologically.dungeon.block.entity.ModBlockEntities;
 import ontologically.dungeon.screen.custom.BlackStoneForgeScreenHandler;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Map;
 import java.util.Optional;
 
-public class BlackStoneForgeEntity extends BlockEntity implements ExtendedScreenHandlerFactory<BlockPos>, ImplementedInventory  {
-    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(2, ItemStack.EMPTY);
+import static ontologically.dungeon.block.Custom.BlackStoneForgeBlock.lit;
+
+public class BlackStoneForgeEntity extends BlockEntity implements ExtendedScreenHandlerFactory<BlockPos>, ImplementedInventory {
+    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(4, ItemStack.EMPTY);
+
+
 
     private static final int INPUT_SLOT = 0;
-    //private static final int INPUT_SLOT2 = 1;
-    private static final int OUTPUT_SLOT = 1;
+    private static final int INPUT_SLOT2 = 1;
+    private static final int OUTPUT_SLOT = 2;
+    private static final int FUEL_SLOT = 3;
+    private int smeltCount = 0;
+    private int fuelTime = 0;
+
 
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
@@ -58,8 +79,10 @@ public class BlackStoneForgeEntity extends BlockEntity implements ExtendedScreen
             @Override
             public void set(int index, int value) {
                 switch (index) {
-                    case 0: BlackStoneForgeEntity.this.progress = value;
-                    case 1: BlackStoneForgeEntity.this.maxProgress = value;
+                    case 0:
+                        BlackStoneForgeEntity.this.progress = value;
+                    case 1:
+                        BlackStoneForgeEntity.this.maxProgress = value;
                 }
             }
 
@@ -96,20 +119,57 @@ public class BlackStoneForgeEntity extends BlockEntity implements ExtendedScreen
         super.readNbt(nbt, registryLookup);
     }
 
+    /**
+     * - check if valid recipe
+     * -if valid
+     * - check if has fuel
+     * - if true
+     * -increase crafting progress
+     * -if done crafting, craft item and reset progress.
+     */
     public void tick(World world, BlockPos pos, BlockState state) {
-        if(hasRecipe()) {
-            increaseCraftingProgress();
-            markDirty(world,pos,state);
+        if (hasRecipe()) {
+            if (isForgeHeated()) {
+                useFuel();
+                world.setBlockState(pos,state.with(lit,true));
+                increaseCraftingProgress();
 
-            if(hasCraftingFinished()) {
+            }
+            markDirty(world, pos, state);
+
+            if (hasCraftingFinished()) {
                 craftItem();
                 resetProgress();
+                world.setBlockState(pos,state.with(lit,false));
             }
 
-        }else {
+        } else {
             resetProgress();
         }
     }
+
+    private boolean isVanilla(Item item) {
+        return (item.toString().contains("minecraft"));
+    }
+
+    //true is succesfull
+    //false if could not see item as fuel or is no item.
+    private void useFuel() {
+        ItemStack fuelStack = this.getStack(FUEL_SLOT);
+        if (fuelTime == 0) {
+            this.removeStack(FUEL_SLOT, 1);
+            if (isVanilla(fuelStack.getItem())) {
+                Map<Item, Integer> map = AbstractFurnaceBlockEntity.createFuelTimeMap();
+                fuelTime = map.get(fuelStack.getItem());
+            } else if ((fuelStack.getItem() == ModItems.metallurgic_coal)) {
+                fuelTime = 3000;
+            }
+        }
+
+    }
+
+
+
 
     private void resetProgress() {
         this.progress = 0;
@@ -117,6 +177,11 @@ public class BlackStoneForgeEntity extends BlockEntity implements ExtendedScreen
     }
 
     private void craftItem() {
+        smeltCount ++;
+        if(smeltCount > 4) {
+            this.removeStack(INPUT_SLOT2,1);
+            smeltCount = 0;
+        }
         Optional<RecipeEntry<BlackStoneForgeRecipe>> recipe = getCurrentRecipe();
         ItemStack output = recipe.get().value().output();
 
@@ -130,19 +195,49 @@ public class BlackStoneForgeEntity extends BlockEntity implements ExtendedScreen
     }
 
     private void increaseCraftingProgress() {
-        this.progress++;
+        if(isForgeHeated()) {
+            fuelTime -= 2;
+            this.progress++;
+        }
+    }
+
+    private boolean isFuel(Item item){
+        if(AbstractFurnaceBlockEntity.canUseAsFuel(this.getStack(FUEL_SLOT))){
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isForgeHeated() {
+        if(this.getStack(FUEL_SLOT).isEmpty()){
+            return false;
+        } else if (this.isFuel(this.getStack(FUEL_SLOT).getItem())) {
+            return true;
+        } else if (this.getStack(FUEL_SLOT).getRegistryEntry() == ModItems.metallurgic_coal.getRegistryEntry()) {
+            return true;
+        }
+        return false;
     }
 
     private boolean hasRecipe() {
         Optional<RecipeEntry<BlackStoneForgeRecipe>> recipe = getCurrentRecipe();
         if(recipe.isEmpty()) {
-            System.out.println("hasRecipe is false, bruh momento");
+            return false;
+        }
+        if(!metallurgicCoalSupplied()) {
             return false;
         }
         ItemStack output = recipe.get().value().output();
 
         return canInsertAmountIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output);
         //code later #58 16:04c
+    }
+
+    private boolean metallurgicCoalSupplied() {
+        if(this.getStack(INPUT_SLOT2).getItem() == ModItems.metallurgic_coal) {
+            return true;
+        }
+        return false;
     }
 
     private boolean canInsertItemIntoOutputSlot(ItemStack output) {

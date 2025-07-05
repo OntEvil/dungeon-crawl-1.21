@@ -12,6 +12,6 @@ public record BlackStoneForgeRecipeInput(ItemStack input) implements RecipeInput
 
     @Override
     public int getSize() {
-        return 1;
+        return 2;
     }
 }

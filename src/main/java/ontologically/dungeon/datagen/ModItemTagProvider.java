@@ -25,7 +25,6 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.COAL)
                 .add(Items.IRON_INGOT);
 
-
         getOrCreateTagBuilder(ItemTags.SWORDS)
                 .add(ModItems.steel_sword);
         getOrCreateTagBuilder(ItemTags.PICKAXES)
